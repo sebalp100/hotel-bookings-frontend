@@ -1,10 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { authLog } from '../api/authLog';
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    [authLog.reducerPath]: authLog.reducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+    .concat(authLog.middleware),
 });
+
+setupListeners(store.dispatch);
 
 export default store;
