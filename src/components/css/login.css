@@ -1,0 +1,83 @@
+.login-background {
+  /* background-image: linear-gradient(
+    to right,
+    #fdbb40,
+    #f9b63f,
+    #f6b13e,
+    #f2ad3d,
+    #eea83c
+  ); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.menu-buttons,
+.menu-buttons2 {
+  align-self: flex-start;
+  color: white;
+  font-size: 30px;
+  margin-top: 40px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.menu-buttons2 {
+  color: orange;
+  transform: scaleX(-1);
+  font-size: 20px;
+}
+
+h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+}
+
+input {
+  height: 20px;
+  padding: 3px;
+}
+
+.myButton {
+  background-color: #8dd62c;
+  border-radius: 28px;
+  border: 1px solid #8dd62c;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  gap: 15px;
+  font-size: 17px;
+  padding: 10px 15px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #2f6627;
+}
+
+.myButton:hover {
+  background-color: #5cbf2a;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.glass {
+  background-color: white;
+  border-radius: 29px;
+  width: 50px;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
