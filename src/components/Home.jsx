@@ -1,7 +1,7 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaYoutube, FaGripLines } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { useGetRoomsDetailsQuery } from '../api/roomsData';
 import './css/home.css';
 import Sidebar from './Sidebar';
@@ -26,7 +26,6 @@ function Home() {
     <div className="mainContainer flex flex-row bg-neutral-100 h-screen width-screen overflow-hidden">
       <Sidebar />
       <div>
-        <FaGripLines className="menu" />
         <h1>LATEST ROOMS</h1>
         <h2>Please select a room</h2>
         <span className="separatorTop">. . . . . . . . . . . . . .</span>
