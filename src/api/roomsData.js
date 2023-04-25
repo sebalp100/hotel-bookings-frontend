@@ -9,9 +9,16 @@ export const roomsApi = createApi({
       query: () => '/rooms',
       providesTags: ['Rooms'],
     }),
+    deleteRoom: builder.mutation({
+      query: (roomId) => ({
+        url: `/rooms/${roomId}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Rooms'],
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetRoomsDetailsQuery } = roomsApi;
+export const { useGetRoomsDetailsQuery, useDeleteRoomMutation } = roomsApi;
