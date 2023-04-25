@@ -5,6 +5,7 @@ import {
   useDeleteRoomMutation,
 } from '../api/roomsData';
 import RecentlyDeletedRooms from './Deleted';
+import './css/delete.css';
 
 function DeleteRoom() {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
