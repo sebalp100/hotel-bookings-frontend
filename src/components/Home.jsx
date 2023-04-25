@@ -2,6 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaYoutube, FaGripLines } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { useGetRoomsDetailsQuery } from '../api/roomsData';
 import './css/home.css';
 
@@ -29,23 +30,25 @@ function Home() {
       <span className="separatorTop">. . . . . . . . . . . . . .</span>
       <ul className="roomContainer">
         {data.map((room) => (
-          <li key={room.id}>
-            <img alt="room" src={room.image_url} />
-            <h4>{room.name}</h4>
-            <span className="separator">. . . . . . . . . . . . . .</span>
-            <p>{room.description}</p>
-            <div className="icons">
-              <span>
-                <FaFacebookF />
-              </span>
-              <span>
-                <FaTwitter />
-              </span>
-              <span>
-                <FaYoutube />
-              </span>
-            </div>
-          </li>
+          <Link key={room.id} to={`/room/${room.id}`}>
+            <li key={room.id}>
+              <img alt="room" src={room.image_url} />
+              <h4>{room.name}</h4>
+              <span className="separator">. . . . . . . . . . . . . .</span>
+              <p>{room.description}</p>
+              <div className="icons">
+                <span>
+                  <FaFacebookF />
+                </span>
+                <span>
+                  <FaTwitter />
+                </span>
+                <span>
+                  <FaYoutube />
+                </span>
+              </div>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>

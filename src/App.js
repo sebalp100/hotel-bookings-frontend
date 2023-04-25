@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import './App.css';
 import DeleteRoom from './components/DeleteRoom';
+import RoomDetails from './components/Detail';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route exact path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/delete" element={<DeleteRoom />} />
+        <Route exact path="/room/:id" element={<RoomDetails />} />
       </Routes>
     </Router>
   );
