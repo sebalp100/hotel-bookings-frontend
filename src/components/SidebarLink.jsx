@@ -8,7 +8,7 @@ const linkClasses = 'flex items-center gap-2 font-light px-3 py-2 hover:bg-neutr
 const SidebarLink = ({ item }) => {
   const { pathname } = useLocation();
   return (
-    <Link to={item.path} className={classNames(pathname === item.path ? 'bg-neutral-700 text-neutral-400' : ' ', linkClasses)}>
+    <Link to={item.path} className={classNames(pathname === item.path ? 'bg-lime-500 text-neutral-50' : ' ', linkClasses)}>
       <span className="text-xl">{item.label}</span>
     </Link>
   );
