@@ -6,11 +6,11 @@ import SidebarLink from './SidebarLink';
 
 const Sidebar = () => (
   <div className="bg-neutral-50 w-60 p-3 flex flex-col text-neutral-900">
-    <div className="flex items center gap-2 px-1 py-3">
+    <div className="flex items center gap-2 px-1 py-3 pt-3 pb-9">
       <MdHotel fontSize={24} />
       <span className="text-neutral-900 text-lg">Hotel Booking</span>
     </div>
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col pt-9">
       {DASHBOARD_SIDEBAR_LINKS.map((item) => (
         <SidebarLink key={item.key} item={item} />
       ))}

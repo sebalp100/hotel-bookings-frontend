@@ -20,12 +20,12 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: 'add_room',
-    label: 'Add Room',
+    label: 'Add a Room',
     path: '/room/new',
   },
   {
     key: 'delete_room',
-    label: 'Delete Room',
+    label: 'Delete a Room',
     path: '/rooms/delete',
   },
 ];
@@ -34,31 +34,31 @@ export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
   {
     key: 'twitter',
     label: 'Twitter',
-    path: 'twitter.com',
+    path: 'https://www.twitter.com',
     icon: <FaTwitter />,
   },
   {
     key: 'facebook',
     label: 'Facebook',
-    path: 'facebook.com',
+    path: 'https://www.facebook.com',
     icon: <FaFacebook />,
   },
   {
     key: 'google_plus',
     label: 'Google Plus',
-    path: 'google.com',
+    path: 'https://www.google.com',
     icon: <FaGooglePlus />,
   },
   {
     key: 'vine',
     label: 'Vine',
-    path: 'vine.com',
+    path: 'https://www.vine.com',
     icon: <FaVine />,
   },
   {
     key: 'pinterest',
     label: 'Pinterest',
-    path: 'pinterest.com',
+    path: 'https://www.pinterest.com',
     icon: <FaPinterest />,
   },
 ];
