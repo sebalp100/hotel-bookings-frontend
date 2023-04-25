@@ -1,4 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import { Flip, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FaTrashAlt } from 'react-icons/fa';
 import {
   useGetRoomsDetailsQuery,
@@ -10,6 +13,16 @@ import './css/delete.css';
 function DeleteRoom() {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
   const [deleteRoom] = useDeleteRoomMutation();
+  const notify = () => toast.success('Room successfully deleted', {
+    position: 'top-center',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: 'light',
+  });
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -24,6 +37,7 @@ function DeleteRoom() {
       deletedRooms.push(deletedRoom);
       localStorage.setItem('deletedRooms', JSON.stringify(deletedRooms));
       deleteRoom(roomId);
+      notify();
     }
   };
 
@@ -62,6 +76,19 @@ function DeleteRoom() {
         </ul>
         <RecentlyDeletedRooms />
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        transition={Flip}
+        pauseOnHover={false}
+        theme="light"
+      />
     </div>
   );
 }
