@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetRoomDataQuery } from '../api/detail';
+import { FaCog } from 'react-icons/fa';
 import './css/home.css';
 
 function DetailRoom() {
@@ -19,14 +20,18 @@ function DetailRoom() {
   }
   return (
     <div className="mainContainer">
-      <span>
-        {data.name}
+      <div>
+        
         <img src={data.image_url} alt={data.name} />
+        <div>
+        {data.name}
         <p>{data.description}</p>
         <p>{data.tv}</p>
         <p>{data.reserved}</p>
         <p>{data.beds}</p>
-      </span>
+        </div>
+        <button className="myButton"> <FaCog /> Reserve </button>
+      </div>
     </div>
   );
 }
