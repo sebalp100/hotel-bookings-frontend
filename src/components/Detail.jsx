@@ -21,7 +21,11 @@ function DetailRoom() {
     <div className="mainContainer">
       <span>
         {data.name}
-        
+        <img src={data.image_url} alt={data.name} />
+        <p>{data.description}</p>
+        <p>{data.tv}</p>
+        <p>{data.reserved}</p>
+        <p>{data.beds}</p>
       </span>
     </div>
   );
