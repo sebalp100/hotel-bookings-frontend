@@ -29,83 +29,97 @@ const FormAddRoom = () => {
   };
 
   return (
-    <div>
+    <div className="flex justify-center w-[1200px] h-screen items-center">
       <form
-        className="bg-neutral-200 flex flex-col justify-between items-start w-[400px] h-[500px] text-white"
+        className="bg-neutral-50 flex flex-col justify-center items-center w-[450px] h-[650px] text-black"
         onSubmit={handleSubmit}
       >
         <label htmlFor={name}>
-          Name:
+          <span>Name</span>
+          <br />
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className="w-[300px]"
           />
         </label>
         <br />
         <label htmlFor={description}>
-          Description:
+          <span>Description</span>
+          <br />
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            className="w-[300px]"
           />
         </label>
         <br />
         <label htmlFor={wifi}>
-          Wi-Fi:
+          <span>Wi-Fi</span>
+          <br />
           <input
             type="text"
             value={wifi}
             onChange={(e) => setWifi(e.target.value)}
+            className="w-[300px]"
           />
         </label>
         <br />
         <label htmlFor={tv}>
-          TV:
+          <span>TV</span>
+          <br />
           <input
             type="text"
             value={tv}
             onChange={(e) => setTv(e.target.value)}
+            className="w-[300px]"
           />
         </label>
         <br />
         <label htmlFor={roomService}>
-          Room Service:
+          <span>Room Service</span>
+          <br />
           <input
             type="text"
             value={roomService}
             onChange={(e) => setRoomService(e.target.value)}
+            className="w-[300px]"
           />
         </label>
         <br />
         <label htmlFor={beds}>
-          Beds:
+          <span>Beds</span>
+          <br />
           <input
             type="number"
             value={beds}
             onChange={(e) => setBeds(e.target.value)}
+            className="w-[300px]"
           />
         </label>
         <br />
         <label htmlFor={imageUrl}>
-          Image URL:
+          <span>Image URL</span>
+          <br />
           <input
             type="text"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
+            className="w-[300px]"
           />
         </label>
         <br />
-        <label htmlFor={reserved}>
-          Reserved:
+        <label htmlFor={reserved} className="flex flex-row items-center gap-2">
           <input
             type="checkbox"
             checked={reserved}
             onChange={(e) => setReserved(e.target.checked)}
           />
+          <span>Reserved</span>
         </label>
         <br />
-        <button type="submit">Create Room</button>
+        <button type="submit" className="bg-lime-500 w-[180px] h-[35px]">Create Room</button>
       </form>
     </div>
   );
