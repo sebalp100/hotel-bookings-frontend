@@ -10,6 +10,16 @@ const FormAddRoom = () => {
   const [beds, setBeds] = useState(1);
   const [imageUrl, setImageUrl] = useState('');
   const [reserved, setReserved] = useState(false);
+  //   const [inputValues, setInputValues] = useState({
+  //     name: "",
+  //     description: "",
+  //     imageUrl: "",
+  //     tv: "",
+  //     wifi: "",
+  //     roomService: "",
+  //     reserved: false,
+  //     beds: 0
+  //   })
 
   const [createRoom] = useCreateRoomMutation();
 
@@ -25,7 +35,13 @@ const FormAddRoom = () => {
       beds,
       image_url: imageUrl,
       reserved,
-    });
+    }).then(() => {
+      window.location.href = '/home';
+    })
+      .catch((error) => {
+        // handle error
+        console.error(error);
+      });
   };
 
   return (
@@ -110,16 +126,16 @@ const FormAddRoom = () => {
           />
         </label>
         <br />
-        <label htmlFor={reserved} className="flex flex-row items-center gap-2">
+        <label htmlFor="reserved" className="flex flex-row items-center gap-2">
           <input
             type="checkbox"
-            checked={reserved}
+            checked="reserved"
             onChange={(e) => setReserved(e.target.checked)}
           />
           <span>Reserved</span>
         </label>
         <br />
-        <button type="submit" className="bg-lime-500 w-[180px] h-[35px]">Create Room</button>
+        <button type="submit" className="bg-lime-500 w-[180px] h-[35px] rounded-lg text-white">Create Room</button>
       </form>
     </div>
   );
