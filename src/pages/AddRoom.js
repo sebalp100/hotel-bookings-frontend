@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const AddRoom = () => {
-    return(
-        <h1>Add Room</h1>
-    );
-}
+const AddRoom = () => (
+  
+);
 
 export default AddRoom;
