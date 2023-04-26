@@ -5,7 +5,7 @@ import { DASHBOARD_SIDEBAR_BOTTOM_LINKS, DASHBOARD_SIDEBAR_LINKS } from '../lib/
 import SidebarLink from './SidebarLink';
 
 const Sidebar = () => (
-  <div className="bg-neutral-50 w-60 p-3 flex flex-col text-neutral-900">
+  <div className="bg-neutral-50 w-60 p-3 flex flex-col text-neutral-900 hidden md:block">
     <div className="flex items center gap-2 px-1 py-3 pt-3 pb-9">
       <MdHotel fontSize={24} />
       <span className="text-neutral-900 text-lg">Hotel Booking</span>
