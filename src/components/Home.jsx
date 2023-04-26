@@ -1,10 +1,13 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+
 import { FaFacebookF, FaTwitter, FaYoutube, FaGripLines } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+
 import { useGetRoomsDetailsQuery } from '../api/roomsData';
 import './css/home.css';
+import Sidebar from './Sidebar';
 
 function Home() {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
@@ -23,13 +26,14 @@ function Home() {
   }
 
   return (
-    <div className="mainContainer">
-      <FaGripLines className="menu" />
-      <h1>LATEST ROOMS</h1>
-      <h2>Please select a room</h2>
-      <span className="separatorTop">. . . . . . . . . . . . . .</span>
-      <ul className="roomContainer">
-        {data.map((room) => (
+    <div className="mainContainer flex flex-row bg-neutral-100 h-screen width-screen overflow-hidden">
+      <Sidebar />
+      <div>
+        <h1>LATEST ROOMS</h1>
+        <h2>Please select a room</h2>
+        <span className="separatorTop">. . . . . . . . . . . . . .</span>
+        <ul className="roomContainer">
+          {data.map((room) => (
           <Link key={room.id} to={`/room/${room.id}`}>
             <li key={room.id}>
               <img alt="room" src={room.image_url} />
@@ -49,8 +53,9 @@ function Home() {
               </div>
             </li>
           </Link>
-        ))}
-      </ul>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
