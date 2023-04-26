@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetRoomDataQuery } from '../api/detail';
+import { FiChevronRight } from 'react-icons/fi';
 import { FaCog } from 'react-icons/fa';
+import { useGetRoomDataQuery } from '../api/detail';
+import './css/roomDetail.css';
 import './css/home.css';
 
 function DetailRoom() {
@@ -20,17 +22,30 @@ function DetailRoom() {
   }
   return (
     <div className="mainContainer">
-      <div>
-        
-        <img src={data.image_url} alt={data.name} />
-        <div>
-        {data.name}
-        <p>{data.description}</p>
-        <p>{data.tv}</p>
-        <p>{data.reserved}</p>
-        <p>{data.beds}</p>
+      <div className="detailContainer">
+        <img className="detailed-image" src={data.image_url} alt={data.name} />
+        <div className='roomdata'>
+          <div>
+            {data.name}
+            <p>{data.description}</p>
+            <p>{data.tv}</p>
+            <p>{data.reserved}</p>
+            <p>{data.beds}</p>
+          </div>
+          <div>
+            <button type="submit" className="myButton">
+              {' '}
+              <FaCog />
+              {' '}
+              Reserve
+              <span className="circle-icon">
+                <FiChevronRight />
+              </span>
+              {' '}
+            </button>
+          </div>
         </div>
-        <button className="myButton"> <FaCog /> Reserve </button>
+
       </div>
     </div>
   );
