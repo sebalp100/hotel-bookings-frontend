@@ -21,31 +21,29 @@ function DetailRoom() {
     );
   }
   return (
-    <div className="mainContainer">
-      <div className="detailContainer">
-        <img className="detailed-image" src={data.image_url} alt={data.name} />
-        <div className='roomdata'>
-          <div>
-            {data.name}
-            <p>{data.description}</p>
-            <p>{data.tv}</p>
-            <p>{data.reserved}</p>
-            <p>{data.beds}</p>
-          </div>
-          <div>
-            <button type="submit" className="myButton">
-              {' '}
-              <FaCog />
-              {' '}
-              Reserve
-              <span className="circle-icon">
-                <FiChevronRight />
-              </span>
-              {' '}
-            </button>
-          </div>
+    <div className="detailContainer">
+      <img className="detailed-image" src={data.image_url} alt={data.name} />
+      <div className="roomdata">
+        <div className="roomtext">
+          <p>{data.name}</p>
+          <p>{data.description}</p>
+          <p>{data.wifi}</p>
+          <p>{data.tv}</p>
+          <p>{data.reserved}</p>
+          <p>{data.beds}</p>
         </div>
-
+        <div>
+          <button type="submit" className="myButton">
+            {' '}
+            <FaCog />
+            {' '}
+            Reserve
+            <span className="circle-icon">
+              <FiChevronRight />
+            </span>
+            {' '}
+          </button>
+        </div>
       </div>
     </div>
   );
