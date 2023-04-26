@@ -4,11 +4,10 @@
 }
 
 .detailed-image {
-  width: 70%;
+  width: 50%;
 }
 
 .detailContainer {
-  width: 80%;
   height: 80%;
   display: flex;
   flex-direction: row;

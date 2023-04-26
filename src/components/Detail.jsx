@@ -5,6 +5,7 @@ import { FaCog } from 'react-icons/fa';
 import { useGetRoomDataQuery } from '../api/detail';
 import './css/roomDetail.css';
 import './css/home.css';
+import Sidebar from './Sidebar';
 
 function DetailRoom() {
   const { id } = useParams();
@@ -22,6 +23,7 @@ function DetailRoom() {
   }
   return (
     <div className="detailContainer">
+      <Sidebar />
       <img className="detailed-image" src={data.image_url} alt={data.name} />
       <div className="roomdata">
         <div className="roomtext">
