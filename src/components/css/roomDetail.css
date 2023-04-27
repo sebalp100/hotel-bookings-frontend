@@ -50,7 +50,7 @@
 }
 
 .mybtn {
-  background-color: #8dd62c;
+  background-color: #8dd62c !important;
   border-radius: 28px;
   border: 1px solid #8dd62c;
   cursor: pointer;

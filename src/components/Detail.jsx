@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import { FaCog } from 'react-icons/fa';
@@ -6,10 +6,15 @@ import { useGetRoomDataQuery } from '../api/detail';
 import './css/roomDetail.css';
 import './css/home.css';
 import Sidebar from './Sidebar';
+import { Modal, Button } from 'react-bootstrap';
 
 function DetailRoom() {
   const { id } = useParams();
   const { data, error, isLoading } = useGetRoomDataQuery(id);
+  const [showModal, setShowModal] = useState(false); // Add state for the modal display
+  const handleClose = () => setShowModal(false); // Function to close the modal
+  const handleShow = () => setShowModal(true); // Function to show the modal
+  
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -35,7 +40,7 @@ function DetailRoom() {
           <p>{data.beds}</p>
         </div>
         <div>
-          <button type="submit" className="mybtn">
+          <button type="submit" className="mybtn" onClick={handleShow}> {/* Add onClick to show the modal */}
             {' '}
             <FaCog />
             {' '}
@@ -45,6 +50,26 @@ function DetailRoom() {
             </span>
             {' '}
           </button>
+          <Modal show={showModal} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Reservation Form</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {/* Add your form inputs here */}
+              <label htmlFor="city">City:</label>
+              <input type="text" id="city" name="city" />
+              <label htmlFor="date">Date:</label>
+              <input type="date" id="date" name="date" />
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleClose}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
       </div>
     </div>
