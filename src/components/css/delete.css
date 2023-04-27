@@ -1,0 +1,109 @@
+.deleteContainer {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#h1 {
+  color: black;
+  align-self: center;
+  font-weight: 400;
+}
+
+.rooms {
+  display: flex;
+  flex-direction: column;
+}
+
+#ul {
+  list-style: none;
+  padding: 0;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#img,
+#imgOld {
+  width: 40vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#li {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+#button {
+  margin-top: 8%;
+}
+
+.deletedContainer {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+#deletedName {
+  margin-top: 40px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: black;
+  align-self: center;
+}
+
+#imgOld {
+  filter: grayscale(100%);
+}
+
+#deleteTitle {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: black;
+  text-align: center;
+  margin-top: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+  #roomContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  #roomContainer img {
+    width: 24vw;
+  }
+
+  #ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4%;
+    justify-content: center;
+  }
+
+  #li {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  #button {
+    margin: 0;
+  }
+
+  #deletedName {
+    margin-top: 90px;
+  }
+
+  .imageDiv {
+    margin-bottom: 30px;
+  }
+}

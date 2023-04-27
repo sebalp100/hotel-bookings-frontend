@@ -41,6 +41,12 @@
 
 .roomContainer img {
   width: 70vw;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.roomContainer img:hover {
+  border: 2px solid orange;
 }
 
 .roomContainer p {
@@ -80,6 +86,14 @@ h4 {
   display: none;
 }
 
+a {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
 @media only screen and (min-width: 768px) {
   .mainContainer h1 {
     margin-top: 7%;
@@ -94,6 +108,7 @@ h4 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: flex-start;
+    gap: 20px;
   }
 
   .roomContainer img {
