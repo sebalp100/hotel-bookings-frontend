@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import { FaCog } from 'react-icons/fa';
 import { useGetRoomDataQuery } from '../api/detail';
+import { useCurrentUserQuery } from '../api/authLog';
 import './css/roomDetail.css';
 import './css/home.css';
 import Sidebar from './Sidebar';
@@ -10,6 +11,7 @@ import Sidebar from './Sidebar';
 function DetailRoom() {
   const { id } = useParams();
   const { data, error, isLoading } = useGetRoomDataQuery(id);
+  const { data: currentUserData } = useCurrentUserQuery();
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -21,6 +23,7 @@ function DetailRoom() {
       </p>
     );
   }
+
   return (
     <div className="detailContainer">
       <Sidebar />
@@ -33,6 +36,8 @@ function DetailRoom() {
           <p>{data.tv}</p>
           <p>{data.reserved}</p>
           <p>{data.beds}</p>
+          <p>{id}</p>
+          {currentUserData && <p>{currentUserData.id}</p>}
         </div>
         <div>
           <button type="submit" className="mybtn">

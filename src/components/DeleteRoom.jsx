@@ -9,6 +9,7 @@ import {
 } from '../api/roomsData';
 import RecentlyDeletedRooms from './Deleted';
 import './css/delete.css';
+import Sidebar from './Sidebar';
 
 function DeleteRoom() {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
@@ -55,44 +56,47 @@ function DeleteRoom() {
   }
 
   return (
-    <div className="deleteContainer">
-      <div className="rooms">
-        <h1 id="deleteTitle">CHOOSE A ROOM TO DELETE</h1>
-        <ul id="ul">
-          {data.map((room) => (
-            <li id="li" key={room.id}>
-              <div className="imageContainer">
-                <h4 id="name">{room.name}</h4>
-                <img id="img" alt="room" src={room.image_url} />
-              </div>
-              <button
-                onClick={() => handleDelete(room.id, room.name)}
-                disabled={isLoading}
-                type="button"
-                className="myButton"
-                id="button"
-              >
-                <FaTrashAlt />
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-        <RecentlyDeletedRooms />
+    <div className="bigContainer">
+      <Sidebar />
+      <div className="deleteContainer">
+        <div className="rooms">
+          <h1 id="deleteTitle">CHOOSE A ROOM TO DELETE</h1>
+          <ul id="ul">
+            {data.map((room) => (
+              <li id="li" key={room.id}>
+                <div className="imageContainer">
+                  <h4 id="name">{room.name}</h4>
+                  <img id="img" alt="room" src={room.image_url} />
+                </div>
+                <button
+                  onClick={() => handleDelete(room.id, room.name)}
+                  disabled={isLoading}
+                  type="button"
+                  className="myButton"
+                  id="button"
+                >
+                  <FaTrashAlt />
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+          <RecentlyDeletedRooms />
+        </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          transition={Flip}
+          pauseOnHover={false}
+          theme="light"
+        />
       </div>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        transition={Flip}
-        pauseOnHover={false}
-        theme="light"
-      />
     </div>
   );
 }

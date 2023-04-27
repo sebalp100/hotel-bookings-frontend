@@ -9,6 +9,7 @@ const store = configureStore({
   reducer: {
     [authLog.reducerPath]: authLog.reducer,
     [roomsApi.reducerPath]: roomsApi.reducer,
+    [roomData.reducerPath]: roomData.reducer,
     [reservationsData.reducerPath]: reservationsData.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware()
