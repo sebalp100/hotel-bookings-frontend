@@ -14,6 +14,8 @@ export const roomsApi = createApi({
         url: '/rooms',
         method: 'POST',
         body: room,
+      }),
+    }),
     deleteRoom: builder.mutation({
       query: (roomId) => ({
         url: `/rooms/${roomId}`,
@@ -26,6 +28,8 @@ export const roomsApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetRoomsDetailsQuery } = roomsApi;
-export const { useCreateRoomMutation } = roomsApi;
-export const { useGetRoomsDetailsQuery, useDeleteRoomMutation } = roomsApi;
+export const {
+  useGetRoomsDetailsQuery,
+  useCreateRoomMutation,
+  useDeleteRoomMutation,
+} = roomsApi;
