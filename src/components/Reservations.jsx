@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable comma-dangle */
 import React from 'react';
 import swal from 'sweetalert';
 import { FaRegWindowClose } from 'react-icons/fa';
@@ -61,7 +60,7 @@ function Reservations() {
   }
 
   const userReservations = reservationsData.filter(
-    (reservation) => reservation.user_id === currentUserData.id
+    (reservation) => reservation.user_id === currentUserData.id,
   );
 
   if (userReservations.length === 0) {
