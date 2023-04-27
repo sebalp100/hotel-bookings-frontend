@@ -19,7 +19,6 @@ function Reservations() {
     isLoading,
     error,
   } = useGetReservationsQuery();
-  console.log(reservationsData);
 
   const handleDelete = (reservationId, roomName) => {
     swal({
