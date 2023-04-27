@@ -15,7 +15,7 @@ function App() {
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<Home />} />
       <Route path="/room/new" element={<AddRoom />} />
-      <Route path="/delete" element={<DeleteRoom />} />
+      <Route path="/rooms/delete" element={<DeleteRoom />} />
       <Route path="/current" element={<Current />} />
       <Route path="/reservations" element={<Reservations />} />
       <Route exact path="/room/:id" element={<RoomDetails />} />
