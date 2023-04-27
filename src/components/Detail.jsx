@@ -9,18 +9,21 @@ import DatePicker from 'react-datepicker';
 import { Modal, Button } from 'react-bootstrap';
 import { isSameDay } from 'date-fns';
 import { useGetRoomDataQuery } from '../api/detail';
+import {useCurrentUserQuery} from '../api/authLog';
 import 'react-datepicker/dist/react-datepicker.css';
 import './css/roomDetail.css';
 import './css/home.css';
 import Sidebar from './Sidebar';
 
+
 function DetailRoom() {
   const { id } = useParams();
   const { data, error, isLoading } = useGetRoomDataQuery(id);
-  const [showModal, setShowModal] = useState(false); // Add state for the modal display
-  const handleClose = () => setShowModal(false); // Function to close the modal
-  const handleShow = () => setShowModal(true); // Function to show the modal
-  const [startDate, setStartDate] = useState(new Date()); // Add state for the start date
+  const [showModal, setShowModal] = useState(false);
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
+  const [startDate, setStartDate] = useState(new Date());
+  const [city, setCity] = useState('');
 
   if (isLoading) {
     return <p>Loading...</p>;
