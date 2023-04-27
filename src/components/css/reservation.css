@@ -30,14 +30,14 @@
 }
 
 .cancel {
-  background-color: rgb(204, 56, 56);
+  background-color: rgb(204, 56, 56) !important;
   border: 1px solid rgb(204, 56, 56);
   text-shadow: 0 1px 0 #575757;
   padding: 7px 13px;
 }
 
 .cancel:hover {
-  background-color: rgb(143, 42, 42);
+  background-color: rgb(143, 42, 42) !important;
   border: 1px solid rgb(143, 42, 42);
   color: white;
 }
@@ -49,6 +49,10 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .reservationBody {
+    margin-left: 202px;
+  }
+
   .reservationContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -56,6 +60,6 @@
   }
 
   .reservationContainer > div {
-    width: 37vw;
+    width: 35vw;
   }
 }

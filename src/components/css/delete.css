@@ -28,7 +28,7 @@
 
 #img,
 #imgOld {
-  width: 40vw;
+  width: 33vw;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -81,6 +81,10 @@
 
   #roomContainer img {
     width: 24vw;
+  }
+
+  .deleteContainer {
+    margin-left: 202px;
   }
 
   #ul {
