@@ -58,12 +58,15 @@
 
 /* modal */
 
-.react-datepicker__day--selected:not(.react-datepicker__day--today) {
+.react-datepicker__day--selected:not(.react-datepicker__day--today) > * {
+  padding: 1.3em 3em;
   background-color: #8dd62c;
   color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
 }
 
-.modal-dialog{
+.modal-dialog {
   position: relative;
   margin-top: 25vh;
   float: right;
@@ -75,6 +78,10 @@
   flex-direction: row;
   margin-bottom: 10px;
   justify-content: space-around;
+}
+
+.react-datepicker__day--selected {
+  background-color: #8dd62c;
 }
 
 label {
@@ -93,9 +100,9 @@ input[type="text"] {
   border: none;
   background-color: transparent;
   color: #8dd62c;
-  font-weight: 300;
+  font-weight: bolder;
+  cursor: pointer;
 }
-
 
 .modal-content {
   background-color: #fff;
@@ -124,7 +131,8 @@ input[type="text"] {
   width: 100%;
 }
 
-.react-datepicker__day-names, .react-datepicker__week {
+.react-datepicker__day-names,
+.react-datepicker__week {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -133,7 +141,24 @@ input[type="text"] {
 
 .react-datepicker__current-month {
   width: 100%;
-} 
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ico {
+  display: flex;
+  flex-direction: row;
+  font-size: 2.5rem;
+  gap: 3px;
+}
+
+.to {
+  color: #8dd62c;
+}
 
 .reserve-button-container {
   position: absolute;
@@ -141,6 +166,36 @@ input[type="text"] {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+}
+
+.btn {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  border: none;
+  border-radius: 45px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.modal-title {
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #8dd62c !important;
+  color: #fff;
+}
+
+.btn-secondary {
+  color: #000;
+  background-color: #fff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .mybtn {
@@ -157,7 +212,6 @@ input[type="text"] {
   text-shadow: 0 1px 0 #2f6627;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
 }
-
 
 @media only screen and (max-width: 768px) {
   .detailContainer {

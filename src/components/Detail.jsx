@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
+import { AiOutlineWifi } from 'react-icons/ai';
+import { MdHotel } from 'react-icons/md';
 import { FaCog } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
 import { Modal, Button } from 'react-bootstrap';
@@ -39,10 +41,17 @@ function DetailRoom() {
         <div className="roomtext">
           <p>{data.name}</p>
           <p>{data.description}</p>
-          <p>{data.wifi}</p>
-          <p>{data.tv}</p>
-          <p>{data.reserved}</p>
-          <p>{data.beds}</p>
+          <p className="ico">
+            <AiOutlineWifi className="to" />
+            {data.wifi}
+          </p>
+          <p className="ico">{data.tv}</p>
+          <p className="ico">
+            {' '}
+            <MdHotel className="to"  fontSize={24} />
+            {' '}
+            {data.beds}
+          </p>
         </div>
         <div>
           <Modal show={showModal} onHide={handleClose}>
@@ -50,7 +59,7 @@ function DetailRoom() {
               <Modal.Title>Book Reservation</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <div className='city'>
+              <div className="city">
                 <label htmlFor="city">City:</label>
                 <input type="text" id="city" name="city" />
               </div>
@@ -71,7 +80,7 @@ function DetailRoom() {
                 Close
               </Button>
               <Button variant="primary" onClick={handleClose}>
-                Save Changes
+                Save
               </Button>
             </Modal.Footer>
           </Modal>
