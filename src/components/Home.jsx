@@ -13,7 +13,11 @@ function Home() {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="spinnerContainer">
+        <span className="loader" />
+      </div>
+    );
   }
 
   if (error) {

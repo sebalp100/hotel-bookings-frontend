@@ -25,7 +25,11 @@ function DeleteRoom() {
   });
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="spinnerContainer">
+        <span className="loader" />
+      </div>
+    );
   }
 
   const handleDelete = (roomId, roomName) => {
