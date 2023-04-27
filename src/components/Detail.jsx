@@ -1,12 +1,16 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import { FaCog } from 'react-icons/fa';
+import DatePicker from 'react-datepicker';
+import { Modal, Button } from 'react-bootstrap';
+import { isSameDay } from 'date-fns';
 import { useGetRoomDataQuery } from '../api/detail';
+import 'react-datepicker/dist/react-datepicker.css';
 import './css/roomDetail.css';
 import './css/home.css';
 import Sidebar from './Sidebar';
-import { Modal, Button } from 'react-bootstrap';
 
 function DetailRoom() {
   const { id } = useParams();
@@ -14,7 +18,8 @@ function DetailRoom() {
   const [showModal, setShowModal] = useState(false); // Add state for the modal display
   const handleClose = () => setShowModal(false); // Function to close the modal
   const handleShow = () => setShowModal(true); // Function to show the modal
-  
+  const [startDate, setStartDate] = useState(new Date()); // Add state for the start date
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -40,26 +45,26 @@ function DetailRoom() {
           <p>{data.beds}</p>
         </div>
         <div>
-          <button type="submit" className="mybtn" onClick={handleShow}> {/* Add onClick to show the modal */}
-            {' '}
-            <FaCog />
-            {' '}
-            Reserve
-            <span className="circle-icon">
-              <FiChevronRight />
-            </span>
-            {' '}
-          </button>
           <Modal show={showModal} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Reservation Form</Modal.Title>
+              <Modal.Title>Book Reservation</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              {/* Add your form inputs here */}
-              <label htmlFor="city">City:</label>
-              <input type="text" id="city" name="city" />
-              <label htmlFor="date">Date:</label>
-              <input type="date" id="date" name="date" />
+              <div className='city'>
+                <label htmlFor="city">City:</label>
+                <input type="text" id="city" name="city" />
+              </div>
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                inline
+                todayButton="Today"
+                dateFormat="MMMM d, yyyy"
+                highlightDates={[new Date()].filter(
+                  (date) => !isSameDay(date, new Date()),
+                )}
+              />
+              {/* Other form inputs */}
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
@@ -70,6 +75,13 @@ function DetailRoom() {
               </Button>
             </Modal.Footer>
           </Modal>
+          <button type="submit" className="mybtn" onClick={handleShow}>
+            <FaCog />
+            Reserve
+            <span className="circle-icon">
+              <FiChevronRight />
+            </span>
+          </button>
         </div>
       </div>
     </div>
