@@ -6,6 +6,7 @@ import './App.css';
 import AddRoom from './pages/AddRoom';
 import DeleteRoom from './components/DeleteRoom';
 import RoomDetails from './components/Detail';
+import Reservation from './pages/Reservation';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/room/new" element={<AddRoom />} />
         <Route path="/delete" element={<DeleteRoom />} />
         <Route exact path="/room/:id" element={<RoomDetails />} />
+        <Route path="reservation/new" element={<Reservation />} />
       </Routes>
     </Router>
   );
