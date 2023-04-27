@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useGetRoomsDetailsQuery } from '../api/roomsData';
+import { useGetRoomsDetailsQuery, useCreateReservationMutation } from '../api/roomsData';
 
 const FormAddReservation = () => {
   const [username, setUsername] = useState('');
@@ -7,6 +7,7 @@ const FormAddReservation = () => {
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
+  const [createReservation] = useCreateReservationMutation();
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -24,18 +25,12 @@ const FormAddReservation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    createRoom({
+    createReservation({
       username,
       room,
       date,
       city,
-    }).then(() => {
-      window.location.href = '/home';
-    })
-      .catch((error) => {
-        // handle error
-        console.error(error);
-      });
+    });
   };
 
   return (
