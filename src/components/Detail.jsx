@@ -35,7 +35,7 @@ function DetailRoom() {
           <p>{data.beds}</p>
         </div>
         <div>
-          <button type="submit" className="myButton">
+          <button type="submit" className="mybtn">
             {' '}
             <FaCog />
             {' '}
