@@ -50,19 +50,22 @@ const FormAddReservation = ({ roomId }) => {
   };
 
   return (
-    <div className="flex justify-center w-[1200px] h-screen items-center">
+    <div className="flex flex-col justify-center w-[1200px] h-[600px] items-center bg-lime-500">
+      <p className="text-4xl text-white">RESERVE A ROOM</p>
+      <p className="border-b border-white opacity-40 w-[900px] m-6" />
+      <p className="text-white">There are different rooms from various locations available. Choose frm the options and reserve a room now by filling the form below.</p>
       <form
-        className="bg-neutral-50 flex flex-col justify-center items-center w-[450px] h-[650px] text-black"
+        className="bg-lime-500 flex flex-col justify-center items-center w-[450px] h-[650px] text-black"
         onSubmit={handleSubmit}
       >
         <label htmlFor={username}>
-          <span>Userame</span>
+          <span className="text-white">Userame</span>
           <br />
           <input
             type="text"
             value={user.username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-[300px]"
+            className="w-[300px] bg-transparent border-2 border-white-500 rounded-lg h-[35px] text-white"
             required
           />
         </label>
@@ -71,8 +74,9 @@ const FormAddReservation = ({ roomId }) => {
           htmlFor={room}
           onChange={(e) => setRoom(e.target.value)}
           value={room}
+          className="w-[300px] bg-transparent border-2 border-white-500 rounded-lg h-[35px] text-white"
         >
-          <option>Select a room...</option>
+          <option className="text-white">Select a room...</option>
           {data.map((room) => (
             <option
               key={room.id}
@@ -87,30 +91,30 @@ const FormAddReservation = ({ roomId }) => {
         </select>
         <br />
         <label htmlFor={date}>
-          <span>Date</span>
+          <span className="text-white">Date</span>
           <br />
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="w-[300px]"
+            className="w-[300px] bg-transparent border-2 border-white-500 rounded-lg h-[35px] text-white"
             required
           />
         </label>
         <br />
         <label htmlFor={city}>
-          <span>City</span>
+          <span className="text-white">City</span>
           <br />
           <input
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="w-[300px]"
+            className="w-[300px] bg-transparent border-2 border-white-500 rounded-lg h-[35px] text-white"
             required
           />
         </label>
         <br />
-        <button type="submit" className="bg-lime-500 w-[180px] h-[35px] rounded-lg text-white">Reserve</button>
+        <button type="submit" className="bg-white w-[180px] h-[35px] rounded-lg text-lime-400">Reserve</button>
       </form>
     </div>
   );
