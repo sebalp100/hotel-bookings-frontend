@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import { FaCog } from 'react-icons/fa';
 import { PropTypes } from 'prop-types';
@@ -40,21 +40,23 @@ function DetailRoom({ onButtonReservedClick }) {
           <p>{data.beds}</p>
         </div>
         <div>
-          <button
-            type="submit"
-            className="mybtn"
-            id="btn"
-            onClick={handleClick}
-          >
-            {' '}
-            <FaCog />
-            {' '}
-            Reserve
-            <span className="circle-icon">
-              <FiChevronRight />
-            </span>
-            {' '}
-          </button>
+          <Link to="http://localhost:3001/reservation/new">
+            <button
+              type="submit"
+              className="mybtn"
+              id={data.id}
+              onClick={handleClick}
+            >
+              {' '}
+              <FaCog />
+              {' '}
+              Reserve
+              <span className="circle-icon">
+                <FiChevronRight />
+              </span>
+              {' '}
+            </button>
+          </Link>
         </div>
       </div>
     </div>

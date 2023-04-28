@@ -1,10 +1,8 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-
-import { FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
+import { FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { useGetRoomsDetailsQuery } from '../api/roomsData';
 import './css/home.css';
 import Sidebar from './Sidebar';

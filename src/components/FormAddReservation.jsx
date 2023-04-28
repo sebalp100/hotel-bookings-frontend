@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { PropTypes } from 'prop-types';
 import { useGetRoomsDetailsQuery, useCreateReservationMutation } from '../api/roomsData';
 import { useCurrentUserQuery } from '../api/authLog';
 
-const FormAddReservation = () => {
+const FormAddReservation = ({ roomId }) => {
   const [user, setUser] = useState({});
   const [username, setUsername] = useState('');
   const [room, setRoom] = useState('');
@@ -11,9 +12,11 @@ const FormAddReservation = () => {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
   const [createReservation] = useCreateReservationMutation();
   const { data: currentUser } = useCurrentUserQuery();
+  const selectedOption = document.getElementById(roomId);
 
   useEffect(() => {
     setUser(currentUser);
+    selectedOption.selected = true;
   });
 
   if (isLoading) {
@@ -71,7 +74,11 @@ const FormAddReservation = () => {
         >
           <option>Select a room...</option>
           {data.map((room) => (
-            <option key={room.id} value={room.id} id={room.id}>
+            <option
+              key={room.id}
+              value={room.id}
+              id={room.id}
+            >
               {' '}
               {room.name}
               {' '}
@@ -107,6 +114,10 @@ const FormAddReservation = () => {
       </form>
     </div>
   );
+};
+
+FormAddReservation.propTypes = {
+  roomId: PropTypes.string.isRequired,
 };
 
 export default FormAddReservation;

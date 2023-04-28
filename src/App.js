@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -9,8 +9,9 @@ import RoomDetails from './components/Detail';
 import Reservation from './pages/Reservation';
 
 function App() {
+  const [roomId, setRoomId] = useState('');
   const handleClick = (data) => {
-    console.log(data);
+    setRoomId(data);
   };
 
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path="/room/new" element={<AddRoom />} />
         <Route path="/delete" element={<DeleteRoom />} />
         <Route exact path="/room/:id" element={<RoomDetails onButtonReservedClick={handleClick} />} />
-        <Route path="reservation/new" element={<Reservation />} />
+        <Route path="reservation/new" element={<Reservation roomId={roomId} />} />
       </Routes>
     </Router>
   );
