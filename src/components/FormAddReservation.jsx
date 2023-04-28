@@ -16,7 +16,7 @@ const FormAddReservation = ({ roomId }) => {
 
   useEffect(() => {
     setUser(currentUser);
-    selectedOption.selected = true;
+    if (selectedOption !== null) selectedOption.selected = true;
   });
 
   if (isLoading) {
@@ -60,7 +60,7 @@ const FormAddReservation = ({ roomId }) => {
           <br />
           <input
             type="text"
-            value={username}
+            value={user.username}
             onChange={(e) => setUsername(e.target.value)}
             className="w-[300px]"
             required
