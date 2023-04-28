@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import { AiOutlineWifi } from 'react-icons/ai';
+import { AiFillTv } from 'react-icons/ai';
 import { MdHotel } from 'react-icons/md';
 import { FaCog } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
@@ -14,7 +15,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './css/roomDetail.css';
 import './css/home.css';
 import Sidebar from './Sidebar';
-
 
 function DetailRoom() {
   const { id } = useParams();
@@ -28,12 +28,11 @@ function DetailRoom() {
   const currentUserId = currentUser;
   const [createReservation] = useCreateReservationMutation();
 
-
   const handleSave = async () => {
-    console.log("City: ", city);
-    console.log("Date: ", date);
-    console.log(id)
-    console.log(currentUserId)
+    console.log('City: ', city);
+    console.log('Date: ', date);
+    console.log(id);
+    console.log(currentUserId);
     const reservationData = {
       city,
       room_name: data.name,
@@ -49,7 +48,6 @@ function DetailRoom() {
     }
   };
 
-
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -62,7 +60,7 @@ function DetailRoom() {
     );
   }
 
-  console.log(currentUserId)
+  console.log(currentUserId);
   return (
     <div className="detailContainer">
       <Sidebar />
@@ -91,11 +89,16 @@ function DetailRoom() {
             <Modal.Body>
               <div className="city">
                 <label htmlFor="city">City:</label>
-                <input type="text" id="city" name="city" value={city}
-                  onChange={(e) => setCity(e.target.value)} />
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
               </div>
               <DatePicker
-                selected={ date }
+                selected={date}
                 onChange={(date) => setdate(date)}
                 inline
                 todayButton="Today"
