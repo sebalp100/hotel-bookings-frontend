@@ -2,12 +2,17 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import { FaCog } from 'react-icons/fa';
+import { PropTypes } from 'prop-types';
 import { useGetRoomDataQuery } from '../api/detail';
 import './css/roomDetail.css';
 import './css/home.css';
 import Sidebar from './Sidebar';
 
-function DetailRoom() {
+function DetailRoom({ onButtonReservedClick }) {
+  const handleClick = (e) => {
+    onButtonReservedClick(e.target.id);
+  };
+
   const { id } = useParams();
   const { data, error, isLoading } = useGetRoomDataQuery(id);
   if (isLoading) {
@@ -35,7 +40,12 @@ function DetailRoom() {
           <p>{data.beds}</p>
         </div>
         <div>
-          <button type="submit" className="mybtn">
+          <button
+            type="submit"
+            className="mybtn"
+            id="btn"
+            onClick={handleClick}
+          >
             {' '}
             <FaCog />
             {' '}
@@ -50,5 +60,9 @@ function DetailRoom() {
     </div>
   );
 }
+
+DetailRoom.propTypes = {
+  onButtonReservedClick: PropTypes.func.isRequired,
+};
 
 export default DetailRoom;

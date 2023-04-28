@@ -9,6 +9,10 @@ import RoomDetails from './components/Detail';
 import Reservation from './pages/Reservation';
 
 function App() {
+  const handleClick = (data) => {
+    console.log(data);
+  };
+
   return (
     <Router>
       <Routes>
@@ -16,7 +20,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/room/new" element={<AddRoom />} />
         <Route path="/delete" element={<DeleteRoom />} />
-        <Route exact path="/room/:id" element={<RoomDetails />} />
+        <Route exact path="/room/:id" element={<RoomDetails onButtonReservedClick={handleClick} />} />
         <Route path="reservation/new" element={<Reservation />} />
       </Routes>
     </Router>
