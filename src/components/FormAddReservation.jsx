@@ -5,7 +5,6 @@ import { useCurrentUserQuery } from '../api/authLog';
 
 const FormAddReservation = ({ roomId }) => {
   const [user, setUser] = useState({});
-  const [username, setUsername] = useState('');
   const [room, setRoom] = useState('');
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
@@ -49,6 +48,10 @@ const FormAddReservation = ({ roomId }) => {
       });
   };
 
+  if (!currentUser || !currentUser.username) {
+    return [];
+  }
+
   return (
     <div className="flex flex-col justify-center w-[1200px] h-[600px] items-center bg-lime-500">
       <p className="text-4xl text-white">RESERVE A ROOM</p>
@@ -58,13 +61,13 @@ const FormAddReservation = ({ roomId }) => {
         className="bg-lime-500 flex flex-col justify-center items-center w-[450px] h-[650px] text-black"
         onSubmit={handleSubmit}
       >
-        <label htmlFor={username}>
+        <label htmlFor="username">
           <span className="text-white">Userame</span>
           <br />
           <input
             type="text"
-            value={user.username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={currentUser.username || ''}
+            name="username"
             className="w-[300px] bg-transparent border-2 border-white-500 rounded-lg h-[35px] text-white"
             required
           />
