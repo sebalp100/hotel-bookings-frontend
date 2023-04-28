@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import {
   FaSuitcaseRolling,
@@ -15,6 +16,7 @@ import './css/login.css';
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   const [login] = useLoginMutation();
   const navigate = useNavigate();
@@ -28,11 +30,10 @@ function Login() {
     })
       .unwrap()
       .then(() => {
-        console.log('Login successful');
         navigate('/home');
       })
       .catch((error) => {
-        console.error('Login failed', error);
+        setError(error.data.message);
       });
   };
 
@@ -50,6 +51,7 @@ function Login() {
       </div>
       <div>
         <h1>Reserve Your Room</h1>
+        {error && <div className="error">{error}</div>}
         <form onSubmit={handleSubmit} className="form">
           <label>
             <input
