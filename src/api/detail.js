@@ -7,6 +7,14 @@ export const roomData = createApi({
     getRoomData: builder.query({
       query: (id) => `/rooms/${id}`,
     }),
+    createReservation: builder.mutation({
+      query: ({ city, room_id, user_id, date }) => ({
+        url: '/reservations',
+        method: 'POST',
+        body: { room_name, city, room_id, user_id, date },
+      }),
+    }),
   }),
 });
-export const { useGetRoomDataQuery } = roomData;
+
+export const { useGetRoomDataQuery, useCreateReservationMutation } = roomData;

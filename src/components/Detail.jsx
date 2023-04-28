@@ -8,8 +8,8 @@ import { FaCog } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
 import { Modal, Button } from 'react-bootstrap';
 import { isSameDay } from 'date-fns';
-import { useGetRoomDataQuery } from '../api/detail';
-import {useCurrentUserQuery} from '../api/authLog';
+import { useGetRoomDataQuery, useCreateReservationMutation } from '../api/detail';
+import { useCurrentUserQuery } from '../api/authLog';
 import 'react-datepicker/dist/react-datepicker.css';
 import './css/roomDetail.css';
 import './css/home.css';
@@ -22,8 +22,33 @@ function DetailRoom() {
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
-  const [startDate, setStartDate] = useState(new Date());
+  const [date, setdate] = useState(new Date());
   const [city, setCity] = useState('');
+  const { data: currentUser } = useCurrentUserQuery();
+  const currentUserId = currentUser;
+  const [createReservation] = useCreateReservationMutation();
+
+
+  const handleSave = async () => {
+    console.log("City: ", city);
+    console.log("Date: ", date);
+    console.log(id)
+    console.log(currentUserId)
+    const reservationData = {
+      city,
+      room_name: data.name,
+      room_id: data.id,
+      user_id: currentUserId.id,
+      date: date.toISOString(),
+    };
+    try {
+      await createReservation(reservationData).unwrap();
+      handleClose();
+    } catch (err) {
+      console.error('Error creating reservation:', err);
+    }
+  };
+
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -36,6 +61,8 @@ function DetailRoom() {
       </p>
     );
   }
+
+  console.log(currentUserId)
   return (
     <div className="detailContainer">
       <Sidebar />
@@ -51,7 +78,7 @@ function DetailRoom() {
           <p className="ico">{data.tv}</p>
           <p className="ico">
             {' '}
-            <MdHotel className="to"  fontSize={24} />
+            <MdHotel className="to" fontSize={24} />
             {' '}
             {data.beds}
           </p>
@@ -64,11 +91,12 @@ function DetailRoom() {
             <Modal.Body>
               <div className="city">
                 <label htmlFor="city">City:</label>
-                <input type="text" id="city" name="city" />
+                <input type="text" id="city" name="city" value={city}
+                  onChange={(e) => setCity(e.target.value)} />
               </div>
               <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                selected={ date }
+                onChange={(date) => setdate(date)}
                 inline
                 todayButton="Today"
                 dateFormat="MMMM d, yyyy"
@@ -82,7 +110,7 @@ function DetailRoom() {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" onClick={handleClose}>
+              <Button variant="primary" onClick={handleSave}>
                 Save
               </Button>
             </Modal.Footer>
