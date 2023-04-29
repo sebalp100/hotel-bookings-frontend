@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   FaSuitcaseRolling,
   FaChevronCircleRight,
@@ -50,7 +50,7 @@ function Login() {
         <FaGripLines />
       </div>
       <div>
-        <h1>Reserve Your Room</h1>
+        <h1 className="loginH1">Reserve Your Room</h1>
         {error && <div className="error">{error}</div>}
         <form onSubmit={handleSubmit} className="form">
           <label>
@@ -78,6 +78,10 @@ function Login() {
             <FaChevronCircleRight />
           </button>
         </form>
+        <p className="signup">
+          First time visiting?
+          <Link to="/signup"> Sign up!</Link>
+        </p>
       </div>
       <div className="menu-buttons2">
         <div className="glass">

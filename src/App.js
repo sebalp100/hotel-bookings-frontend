@@ -8,6 +8,7 @@ import DeleteRoom from './components/DeleteRoom';
 import Current from './components/Current';
 import Reservations from './components/Reservations';
 import RoomDetails from './components/Detail';
+import SignUp from './components/SignUp';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/current" element={<Current />} />
       <Route path="/reservations" element={<Reservations />} />
       <Route exact path="/room/:id" element={<RoomDetails />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   );
 }
