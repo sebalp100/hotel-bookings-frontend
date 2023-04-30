@@ -64,7 +64,14 @@ function Reservations() {
   );
 
   if (userReservations.length === 0) {
-    return <p>No reservations</p>;
+    return (
+      <div className="bigContainer">
+        <Sidebar />
+        <p className="reservationBody noReservation">
+          You have no reservations
+        </p>
+      </div>
+    );
   }
 
   return (

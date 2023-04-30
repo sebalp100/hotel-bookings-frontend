@@ -136,6 +136,12 @@ a {
   display: none;
 }
 
+.noReservation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @-webkit-keyframes sk-bouncedelay {
   0%,
   80%,
@@ -258,6 +264,15 @@ a {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     font-weight: 600;
+  }
+
+  .logout {
+    padding: 8px 13px;
+    text-align: start;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 100;
+    color: #171717;
   }
 }
 
