@@ -20,7 +20,7 @@ function Current() {
     return (
       <p>
         Error:
-        {error.message}
+        {error.data.message}
       </p>
     );
   }

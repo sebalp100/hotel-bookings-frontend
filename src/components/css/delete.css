@@ -53,8 +53,8 @@
 }
 
 #deletedName {
-  margin-top: 40px;
-  font-size: 1.4rem;
+  font-size: 1.9rem !important;
+  margin-bottom: 20px;
   font-weight: 800;
   color: black;
   align-self: center;
@@ -65,7 +65,9 @@
 }
 
 #deleteTitle {
-  font-size: 1.9rem;
+  font-size: 1.9rem !important;
+  margin-top: 40px;
+  margin-bottom: 20px;
   font-weight: 800;
   color: black;
   text-align: center;
@@ -101,10 +103,6 @@
 
   #button {
     margin: 0;
-  }
-
-  #deletedName {
-    margin-top: 90px;
   }
 
   .imageDiv {

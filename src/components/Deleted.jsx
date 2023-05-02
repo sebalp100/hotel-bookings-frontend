@@ -9,7 +9,9 @@ function RecentlyDeletedRooms() {
       <ul id="ul">
         {deletedRooms.map((room) => (
           <li id="li" key={room.id}>
-            <h4 id="name">{room.name}</h4>
+            <h4 id="name" className="roomNames">
+              {room.name}
+            </h4>
             <div className="imageDiv">
               <img id="imgOld" alt="room" src={room.image_url} />
             </div>

@@ -9,6 +9,7 @@ import Carousel from 'nuka-carousel';
 import { useGetRoomsDetailsQuery } from '../api/roomsData';
 import './css/home.css';
 import Sidebar from './Sidebar';
+import MobileMenu from './MobileMenu';
 
 function Home() {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
@@ -25,6 +26,18 @@ function Home() {
     slidesToShow: 3,
   };
 
+  if (data.length === 0) {
+    return (
+      <div className="bigContainer">
+        <Sidebar />
+        <MobileMenu />
+        <p className="reservationBody noReservation">
+          There is no room available. Please add one.
+        </p>
+      </div>
+    );
+  }
+
   if (error) {
     return (
       <p>
@@ -37,6 +50,7 @@ function Home() {
   return (
     <div className="bigContainer">
       <Sidebar />
+      <MobileMenu />
       <div className="mainContainer">
         <div className="roomsBox">
           <h1>LATEST ROOMS</h1>
@@ -48,7 +62,7 @@ function Home() {
                 <Link key={room.id} to={`/room/${room.id}`}>
                   <li key={room.id}>
                     <img alt="room" src={room.image_url} />
-                    <h4>{room.name}</h4>
+                    <h4 className="roomNames">{room.name}</h4>
                     <span className="separator">
                       . . . . . . . . . . . . . .
                     </span>
@@ -73,7 +87,7 @@ function Home() {
                 <Link key={room.id} to={`/room/${room.id}`}>
                   <li key={room.id}>
                     <img alt="room" src={room.image_url} />
-                    <h4>{room.name}</h4>
+                    <h4 className="roomNames">{room.name}</h4>
                     <span className="separator">
                       . . . . . . . . . . . . . .
                     </span>

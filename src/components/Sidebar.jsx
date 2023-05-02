@@ -29,6 +29,7 @@ const Sidebar = () => {
           icon: 'success',
         });
         dispatch(authLog.util.resetApiState());
+        document.cookie = '_hotel-booking=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         navigate('/');
       } else {
         swal('Your are still logged in.');

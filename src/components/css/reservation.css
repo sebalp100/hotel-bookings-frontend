@@ -1,6 +1,7 @@
 .reservationBody {
   height: 100vh;
   background-color: rgb(228, 226, 226);
+  padding-top: 30px;
 }
 
 .reservationContainer {
