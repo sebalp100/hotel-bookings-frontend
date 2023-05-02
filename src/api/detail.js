@@ -1,6 +1,6 @@
+/* eslint-disable camelcase */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// Define a service using a base URL and expected endpoints
 export const roomData = createApi({
   reducerPath: 'roomData',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
@@ -8,9 +8,18 @@ export const roomData = createApi({
     getRoomData: builder.query({
       query: (id) => `/rooms/${id}`,
     }),
+    createReservation: builder.mutation({
+      query: ({
+        room_name, city, room_id, user_id, date,
+      }) => ({
+        url: '/reservations',
+        method: 'POST',
+        body: {
+          room_name, city, room_id, user_id, date,
+        },
+      }),
+    }),
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useGetRoomDataQuery } = roomData;
+export const { useGetRoomDataQuery, useCreateReservationMutation } = roomData;

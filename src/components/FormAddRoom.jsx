@@ -10,16 +10,6 @@ const FormAddRoom = () => {
   const [beds, setBeds] = useState(1);
   const [imageUrl, setImageUrl] = useState('');
   const [reserved, setReserved] = useState(false);
-  //   const [inputValues, setInputValues] = useState({
-  //     name: "",
-  //     description: "",
-  //     imageUrl: "",
-  //     tv: "",
-  //     wifi: "",
-  //     roomService: "",
-  //     reserved: false,
-  //     beds: 0
-  //   })
 
   const [createRoom] = useCreateRoomMutation();
 
