@@ -1,27 +1,26 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
-import { AiOutlineWifi } from 'react-icons/ai';
-import { AiFillTv } from 'react-icons/ai';
+import { AiOutlineWifi, AiFillVideoCamera } from 'react-icons/ai';
+
 import { MdHotel } from 'react-icons/md';
 import { FaCog } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
 import { Modal, Button } from 'react-bootstrap';
 import { isSameDay } from 'date-fns';
-import { useGetRoomDataQuery, useCreateReservationMutation } from '../api/detail';
+import {
+  useGetRoomDataQuery,
+  useCreateReservationMutation,
+} from '../api/detail';
 import { useCurrentUserQuery } from '../api/authLog';
 import 'react-datepicker/dist/react-datepicker.css';
-import { PropTypes } from 'prop-types';
 import './css/roomDetail.css';
 import './css/home.css';
 import Sidebar from './Sidebar';
 
-function DetailRoom({ onButtonReservedClick }) {
-  const handleClick = (e) => {
-    onButtonReservedClick(e.target.id);
-  };
-
+function DetailRoom() {
   const { id } = useParams();
   const { data, error, isLoading } = useGetRoomDataQuery(id);
   const [showModal, setShowModal] = useState(false);
@@ -65,8 +64,6 @@ function DetailRoom({ onButtonReservedClick }) {
     );
   }
 
-  console.log(currentUserId);
-
   return (
     <div className="detailContainer">
       <Sidebar />
@@ -79,11 +76,13 @@ function DetailRoom({ onButtonReservedClick }) {
             <AiOutlineWifi className="to" />
             {data.wifi}
           </p>
-          <p className="ico">{data.tv}</p>
+          <p className="ico">
+            <AiFillVideoCamera className="to" />
+            {data.tv}
+          </p>
           <p className="ico">
             {' '}
             <MdHotel className="to" fontSize={24} />
-            {' '}
             {data.beds}
           </p>
         </div>
@@ -136,9 +135,5 @@ function DetailRoom({ onButtonReservedClick }) {
     </div>
   );
 }
-
-DetailRoom.propTypes = {
-  onButtonReservedClick: PropTypes.func.isRequired,
-};
 
 export default DetailRoom;
