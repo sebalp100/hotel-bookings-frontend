@@ -16,7 +16,17 @@ export const authLog = createApi({
         invalidatesTags: ['User'],
       }),
     }),
+    logout: builder.mutation({
+      query: () => ({
+        url: '/logout',
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Cookie: `sessionCookie=${document.cookie}`,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useCurrentUserQuery, useLoginMutation } = authLog;
+export const { useCurrentUserQuery, useLoginMutation, useLogoutMutation } = authLog;
