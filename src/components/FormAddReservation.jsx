@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
-import { useGetRoomsDetailsQuery, useCreateReservationMutation } from '../api/roomsData';
+import {
+  useGetRoomsDetailsQuery,
+  useCreateReservationMutation,
+} from '../api/roomsData';
 import { useCurrentUserQuery } from '../api/authLog';
 
 const FormAddReservation = ({ roomId }) => {
@@ -39,7 +42,8 @@ const FormAddReservation = ({ roomId }) => {
       city,
       user_id: uid,
       room_id: room,
-    }).unwrap()
+    })
+      .unwrap()
       .then((result) => {
         console.log('Reservation created successfully:', result);
       })
@@ -56,7 +60,10 @@ const FormAddReservation = ({ roomId }) => {
     <div className="flex flex-col justify-center w-[1200px] h-[600px] items-center bg-lime-500">
       <p className="text-4xl text-white">RESERVE A ROOM</p>
       <p className="border-b border-white opacity-40 w-[900px] m-6" />
-      <p className="text-white">There are different rooms from various locations available. Choose frm the options and reserve a room now by filling the form below.</p>
+      <p className="text-white">
+        There are different rooms from various locations available. Choose frm
+        the options and reserve a room now by filling the form below.
+      </p>
       <form
         className="bg-lime-500 flex flex-col justify-center items-center w-[450px] h-[650px] text-black"
         onSubmit={handleSubmit}
@@ -68,6 +75,7 @@ const FormAddReservation = ({ roomId }) => {
             type="text"
             value={currentUser.username || ''}
             name="username"
+            readOnly
             className="w-[300px] bg-transparent border-2 border-white-500 rounded-lg h-[35px] text-white"
             required
           />
@@ -81,11 +89,7 @@ const FormAddReservation = ({ roomId }) => {
         >
           <option className="text-white">Select a room...</option>
           {data.map((room) => (
-            <option
-              key={room.id}
-              value={room.id}
-              id={room.id}
-            >
+            <option key={room.id} value={room.id} id={room.id}>
               {' '}
               {room.name}
               {' '}
@@ -117,7 +121,12 @@ const FormAddReservation = ({ roomId }) => {
           />
         </label>
         <br />
-        <button type="submit" className="bg-white w-[180px] h-[35px] rounded-lg text-lime-400">Reserve</button>
+        <button
+          type="submit"
+          className="bg-white w-[180px] h-[35px] rounded-lg text-lime-400"
+        >
+          Reserve
+        </button>
       </form>
     </div>
   );
