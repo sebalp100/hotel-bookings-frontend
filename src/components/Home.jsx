@@ -1,10 +1,8 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-
-import { FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
+import { FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { useGetRoomsDetailsQuery } from '../api/roomsData';
 import './css/home.css';
 import Sidebar from './Sidebar';
@@ -13,7 +11,11 @@ function Home() {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="spinnerContainer">
+        <span className="loader" />
+      </div>
+    );
   }
 
   if (error) {
@@ -26,35 +28,37 @@ function Home() {
   }
 
   return (
-    <div className="mainContainer flex flex-row bg-neutral-100 h-screen width-screen overflow-hidden">
+    <div className="bigContainer">
       <Sidebar />
-      <div>
-        <h1>LATEST ROOMS</h1>
-        <h2>Please select a room</h2>
-        <span className="separatorTop">. . . . . . . . . . . . . .</span>
-        <ul className="roomContainer">
-          {data.map((room) => (
-            <Link key={room.id} to={`/room/${room.id}`}>
-              <li key={room.id}>
-                <img alt="room" src={room.image_url} />
-                <h4>{room.name}</h4>
-                <span className="separator">. . . . . . . . . . . . . .</span>
-                <p>{room.description}</p>
-                <div className="icons">
-                  <span>
-                    <FaFacebookF />
-                  </span>
-                  <span>
-                    <FaTwitter />
-                  </span>
-                  <span>
-                    <FaYoutube />
-                  </span>
-                </div>
-              </li>
-            </Link>
-          ))}
-        </ul>
+      <div className="mainContainer">
+        <div className="roomsBox">
+          <h1>LATEST ROOMS</h1>
+          <h2>Please select a room</h2>
+          <span className="separatorTop">. . . . . . . . . . . . . .</span>
+          <ul className="roomContainer">
+            {data.map((room) => (
+              <Link key={room.id} to={`/room/${room.id}`}>
+                <li key={room.id}>
+                  <img alt="room" src={room.image_url} />
+                  <h4>{room.name}</h4>
+                  <span className="separator">. . . . . . . . . . . . . .</span>
+                  <p>{room.description}</p>
+                  <div className="icons">
+                    <span className="iconSize">
+                      <FaFacebookF />
+                    </span>
+                    <span className="iconSize">
+                      <FaTwitter />
+                    </span>
+                    <span className="iconSize">
+                      <FaYoutube />
+                    </span>
+                  </div>
+                </li>
+              </Link>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

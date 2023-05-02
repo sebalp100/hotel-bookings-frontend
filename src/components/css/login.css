@@ -1,12 +1,4 @@
 .login-background {
-  /* background-image: linear-gradient(
-    to right,
-    #fdbb40,
-    #f9b63f,
-    #f6b13e,
-    #f2ad3d,
-    #eea83c
-  ); */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,8 +24,8 @@
 
 h1 {
   color: white;
-  font-weight: bold;
-  font-size: 3rem;
+  font-weight: bold !important;
+  font-size: 1.7rem !important;
 }
 
 .form {
@@ -45,12 +37,13 @@ h1 {
 }
 
 input {
-  height: 20px;
-  padding: 3px;
+  height: 20px !important;
+  padding: 14px 10px !important;
+  color: black !important;
 }
 
 .myButton {
-  background-color: #8dd62c;
+  background-color: #8dd62c !important;
   border-radius: 28px;
   border: 1px solid #8dd62c;
   cursor: pointer;
@@ -65,7 +58,7 @@ input {
 }
 
 .myButton:hover {
-  background-color: #5cbf2a;
+  background-color: #5cbf2a !important;
 }
 
 .myButton:active {
@@ -81,4 +74,10 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 3rem !important;
+  }
 }

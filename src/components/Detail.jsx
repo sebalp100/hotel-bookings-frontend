@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import { AiOutlineWifi } from 'react-icons/ai';
 import { AiFillTv } from 'react-icons/ai';
@@ -12,11 +12,16 @@ import { isSameDay } from 'date-fns';
 import { useGetRoomDataQuery, useCreateReservationMutation } from '../api/detail';
 import { useCurrentUserQuery } from '../api/authLog';
 import 'react-datepicker/dist/react-datepicker.css';
+import { PropTypes } from 'prop-types';
 import './css/roomDetail.css';
 import './css/home.css';
 import Sidebar from './Sidebar';
 
-function DetailRoom() {
+function DetailRoom({ onButtonReservedClick }) {
+  const handleClick = (e) => {
+    onButtonReservedClick(e.target.id);
+  };
+
   const { id } = useParams();
   const { data, error, isLoading } = useGetRoomDataQuery(id);
   const [showModal, setShowModal] = useState(false);
@@ -61,6 +66,7 @@ function DetailRoom() {
   }
 
   console.log(currentUserId);
+
   return (
     <div className="detailContainer">
       <Sidebar />
@@ -130,5 +136,9 @@ function DetailRoom() {
     </div>
   );
 }
+
+DetailRoom.propTypes = {
+  onButtonReservedClick: PropTypes.func.isRequired,
+};
 
 export default DetailRoom;
