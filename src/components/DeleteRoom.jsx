@@ -14,7 +14,7 @@ import Sidebar from './Sidebar';
 import MobileMenu from './MobileMenu';
 import { reservationsData } from '../api/reservationsData';
 
-function DeleteRoom() {
+const DeleteRoom = () => {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
   const dispatch = useDispatch();
   const [deleteRoom] = useDeleteRoomMutation();
@@ -107,6 +107,6 @@ function DeleteRoom() {
       </div>
     </div>
   );
-}
+};
 
 export default DeleteRoom;

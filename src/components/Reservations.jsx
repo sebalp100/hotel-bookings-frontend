@@ -12,7 +12,7 @@ import './css/reservation.css';
 import Sidebar from './Sidebar';
 import MobileMenu from './MobileMenu';
 
-function Reservations() {
+const Reservations = () => {
   const { data: currentUserData, error: userError } = useCurrentUserQuery();
   const [deleteReservation] = useDeleteReservationMutation();
   const {
@@ -121,6 +121,6 @@ function Reservations() {
       </div>
     </div>
   );
-}
+};
 
 export default Reservations;

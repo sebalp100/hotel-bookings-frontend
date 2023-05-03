@@ -9,7 +9,7 @@ import './css/home.css';
 import Sidebar from './Sidebar';
 import MobileMenu from './MobileMenu';
 
-function Home() {
+const Home = () => {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
 
   if (isLoading) {
@@ -110,6 +110,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

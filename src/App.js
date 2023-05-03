@@ -12,7 +12,7 @@ import RoomDetails from './components/Detail';
 import SignUp from './components/SignUp';
 import Reservation from './pages/Reservation';
 
-function App() {
+const App = () => {
   const [roomId, setRoomId] = useState('');
   const handleClick = (data) => {
     setRoomId(data);
@@ -31,6 +31,6 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
     </Routes>
   );
-}
+};
 
 export default App;

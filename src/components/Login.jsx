@@ -13,7 +13,7 @@ import { useLoginMutation } from '../api/authLog';
 
 import './css/login.css';
 
-function Login() {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -90,6 +90,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

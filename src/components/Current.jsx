@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCurrentUserQuery } from '../api/authLog';
 
-function Current() {
+const Current = () => {
   const { data, error, isLoading } = useCurrentUserQuery();
 
   if (isLoading) {
@@ -37,6 +37,6 @@ function Current() {
       </p>
     </div>
   );
-}
+};
 
 export default Current;
