@@ -49,6 +49,28 @@
   align-items: center;
 }
 
+.reservationSlogan {
+  margin: 3% 3%;
+  text-align: center;
+  font-weight: 500;
+  text-shadow: 0 1px 0 #575757;
+}
+
+.addReservationForm span {
+  text-shadow: 0 1px 0 #575757;
+}
+
+.addReservationForm input {
+  border: 2px solid white !important;
+  color: white !important;
+}
+
+.addReserveButton {
+  border-radius: 20px !important;
+  padding: 5px 20px !important;
+  font-weight: 500;
+}
+
 @media only screen and (min-width: 768px) {
   .reservationBody {
     margin-left: 202px;
@@ -62,5 +84,9 @@
 
   .reservationContainer > div {
     width: 35vw;
+  }
+
+  .addReservationForm {
+    margin-left: 201px;
   }
 }

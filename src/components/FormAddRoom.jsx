@@ -9,7 +9,6 @@ const FormAddRoom = () => {
   const [roomService, setRoomService] = useState('');
   const [beds, setBeds] = useState(1);
   const [imageUrl, setImageUrl] = useState('');
-  const [reserved, setReserved] = useState(false);
 
   const [createRoom] = useCreateRoomMutation();
 
@@ -24,7 +23,6 @@ const FormAddRoom = () => {
       room_service: roomService,
       beds,
       image_url: imageUrl,
-      reserved,
     })
       .then(() => {
         window.location.href = '/home';
@@ -116,18 +114,6 @@ const FormAddRoom = () => {
               onChange={(e) => setImageUrl(e.target.value)}
               className="w-[300px]"
             />
-          </label>
-          <br />
-          <label
-            htmlFor="reserved"
-            className="flex flex-row items-center gap-2"
-          >
-            <input
-              type="checkbox"
-              checked={reserved}
-              onChange={(e) => setReserved(e.target.checked)}
-            />
-            <span>Reserved</span>
           </label>
           <br />
           <button
