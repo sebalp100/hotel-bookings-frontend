@@ -24,6 +24,7 @@ export const authLog = createApi({
           'Content-Type': 'application/json',
           Cookie: `sessionCookie=${document.cookie}`,
         },
+        invalidatesTags: ['Reservations'],
       }),
     }),
   }),

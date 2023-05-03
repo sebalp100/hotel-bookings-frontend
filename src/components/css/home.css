@@ -76,9 +76,10 @@
   align-items: center;
 }
 
-h4 {
-  margin: 3% 0;
-  font-size: 1.3rem;
+.roomNames {
+  margin: 2% 0;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .separatorTop {
@@ -89,6 +90,10 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.roomsBox h1 {
+  margin-top: 40px;
 }
 
 a {
@@ -130,6 +135,16 @@ a {
 .spinner .bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
+}
+
+.slider-container {
+  display: none;
+}
+
+.noReservation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @-webkit-keyframes sk-bouncedelay {
@@ -193,7 +208,19 @@ a {
   }
 }
 
+.slider-control-bottomcenter {
+  display: none;
+}
+
 @media only screen and (min-width: 768px) {
+  .mobileRooms {
+    display: none;
+  }
+
+  .slider-container {
+    display: block;
+  }
+
   .mainContainer {
     margin-left: 202px;
   }
@@ -209,17 +236,61 @@ a {
 
   .roomContainer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 90%;
+    justify-content: center;
     align-items: flex-start;
     gap: 20px;
   }
 
   .roomContainer img {
-    width: 24vw;
+    width: 97vw;
   }
 
   .separatorTop {
     display: block;
     color: lightgrey;
+  }
+
+  .formContainer {
+    margin-left: 108px;
+  }
+
+  .slider-control-centerleft button {
+    margin-left: -3.5vw;
+    background: rgb(128, 187, 40) !important;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-weight: 600;
+  }
+
+  .slider-control-centerright button {
+    margin-right: -3.5vw;
+    background: rgb(128, 187, 40) !important;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-weight: 600;
+  }
+
+  .logout {
+    padding: 8px 13px;
+    text-align: start;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 100;
+    color: #171717;
+  }
+
+  .slider-list {
+    gap: 10px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .slider-control-centerleft button {
+    margin-left: -4vw;
+  }
+
+  .slider-control-centerright button {
+    margin-right: -4vw;
   }
 }

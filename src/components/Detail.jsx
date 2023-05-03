@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { FiChevronRight } from 'react-icons/fi';
 import { AiOutlineWifi, AiFillVideoCamera } from 'react-icons/ai';
 
@@ -19,6 +20,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './css/roomDetail.css';
 import './css/home.css';
 import Sidebar from './Sidebar';
+import { reservationsData } from '../api/reservationsData';
+import MobileMenu from './MobileMenu';
 
 function DetailRoom() {
   const { id } = useParams();
@@ -30,6 +33,7 @@ function DetailRoom() {
   const [city, setCity] = useState('');
   const { data: currentUser } = useCurrentUserQuery();
   const currentUserId = currentUser;
+  const dispatch = useDispatch();
   const [createReservation] = useCreateReservationMutation();
 
   const handleSave = async () => {
@@ -46,6 +50,7 @@ function DetailRoom() {
     };
     try {
       await createReservation(reservationData).unwrap();
+      dispatch(reservationsData.util.resetApiState());
       handleClose();
     } catch (err) {
       console.error('Error creating reservation:', err);
@@ -53,8 +58,13 @@ function DetailRoom() {
   };
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="spinnerContainer">
+        <span className="loader" />
+      </div>
+    );
   }
+
   if (error) {
     return (
       <p>
@@ -65,71 +75,87 @@ function DetailRoom() {
   }
 
   return (
-    <div className="detailContainer">
+    <div>
       <Sidebar />
-      <img className="detailed-image" src={data.image_url} alt={data.name} />
-      <div className="roomdata">
-        <div className="roomtext">
-          <p>{data.name}</p>
-          <p>{data.description}</p>
-          <p className="ico">
-            <AiOutlineWifi className="to" />
-            {data.wifi}
-          </p>
-          <p className="ico">
-            <AiFillVideoCamera className="to" />
-            {data.tv}
-          </p>
-          <p className="ico">
-            {' '}
-            <MdHotel className="to" fontSize={24} />
-            {data.beds}
-          </p>
-        </div>
-        <div>
-          <Modal show={showModal} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Book Reservation</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <div className="city">
-                <label htmlFor="city">City:</label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                />
+      <MobileMenu />
+      <div className="detailContainer">
+        <img className="detailed-image" src={data.image_url} alt={data.name} />
+        <div className="detailsMain">
+          <div className="roomtext">
+            <h4>{data.name}</h4>
+            <p className="hours">(Reservations for 24hs only)</p>
+            <div className="ico">
+              <div>
+                <AiOutlineWifi className="to" />
+                <span>Wi-fi:</span>
               </div>
-              <DatePicker
-                selected={date}
-                onChange={(date) => setdate(date)}
-                inline
-                todayButton="Today"
-                dateFormat="MMMM d, yyyy"
-                highlightDates={[new Date()].filter(
-                  (date) => !isSameDay(date, new Date()),
-                )}
-              />
-              {/* Other form inputs */}
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={handleSave}>
-                Save
-              </Button>
-            </Modal.Footer>
-          </Modal>
-          <button type="submit" className="mybtn" onClick={handleShow}>
-            <FaCog />
-            Reserve
-            <span className="circle-icon">
-              <FiChevronRight />
-            </span>
-          </button>
+              {data.wifi}
+            </div>
+            <div className="ico">
+              <div>
+                <AiFillVideoCamera className="to" />
+                <span>TV:</span>
+              </div>
+              {data.tv}
+            </div>
+            <div className="ico">
+              {' '}
+              <div>
+                <MdHotel className="to" fontSize={24} />
+                <span>Beds:</span>
+              </div>
+              {data.beds}
+            </div>
+          </div>
+          <div>
+            <Modal show={showModal} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Book Reservation</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <div className="city">
+                  <label htmlFor="city">City:</label>
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                  />
+                </div>
+                <DatePicker
+                  selected={date}
+                  onChange={(date) => setdate(date)}
+                  inline
+                  todayButton="Today"
+                  dateFormat="MMMM d, yyyy"
+                  highlightDates={[new Date()].filter(
+                    (date) => !isSameDay(date, new Date()),
+                  )}
+                />
+                {/* Other form inputs */}
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={handleSave}>
+                  Save
+                </Button>
+              </Modal.Footer>
+            </Modal>
+            <button
+              type="submit"
+              className="mybtn reserveButton"
+              onClick={handleShow}
+            >
+              <FaCog />
+              Reserve
+              <span className="circle-icon">
+                <FiChevronRight />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

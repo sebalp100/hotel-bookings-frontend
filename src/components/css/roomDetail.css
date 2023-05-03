@@ -1,10 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .detailed-image {
-  width: 50%;
+  width: 50vw;
+  height: max-content;
+  align-self: center;
 }
 
 .main-cont {
@@ -14,14 +11,10 @@
 }
 
 .detailContainer {
-  position: absolute;
-  height: 80%;
   display: flex;
   flex-direction: row;
-  margin: auto;
-  margin-top: 4rem;
-  gap: 5rem;
-  margin-bottom: 2rem;
+  height: 100vh;
+  margin-left: 200px;
 }
 
 .roomdata {
@@ -52,8 +45,35 @@
 .roomtext {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 6px;
   margin-top: 2rem;
+}
+
+.roomtext h4 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: end;
+  margin-right: 15%;
+}
+
+.ico {
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  gap: 3px;
+  padding: 5px 10px;
+  width: 85%;
+  justify-content: space-between;
+}
+
+.ico:nth-child(even) {
+  background-color: rgb(226, 226, 226);
+}
+
+.ico div {
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }
 
 /* modal */
@@ -67,10 +87,11 @@
 }
 
 .modal-dialog {
-  position: relative;
-  margin-top: 25vh;
+  position: absolute;
   float: right;
   z-index: 1;
+  right: 10%;
+  top: 20%;
 }
 
 .city {
@@ -88,7 +109,7 @@ label {
   font-weight: bold;
 }
 
-input[type="text"] {
+input[type='text'] {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid gray;
@@ -149,13 +170,6 @@ input[type="text"] {
   justify-content: space-around;
 }
 
-.ico {
-  display: flex;
-  flex-direction: row;
-  font-size: 1rem;
-  gap: 3px;
-}
-
 .to {
   color: #8dd62c;
 }
@@ -213,21 +227,53 @@ input[type="text"] {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
+.detailsMain {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6%;
+  margin-top: 10%;
+  gap: 30%;
+  width: 100%;
+}
+
+.hours {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: end;
+  margin-right: 15%;
+}
+
+.reserveButton {
+  padding: 5px 7px;
+  gap: 10px;
+  align-items: center;
+}
+
 @media only screen and (max-width: 768px) {
   .detailContainer {
     flex-direction: column;
     gap: 10px;
+    margin-left: 0;
+    width: 94%;
   }
 
   .detailed-image {
-    width: 100%;
+    width: 70vw;
+    height: max-content;
+    align-self: center;
+    margin-top: 80px;
   }
 
   .roomtext {
     gap: 9px;
   }
 
-  #root {
-    width: 100%;
+  .detailsMain {
+    margin-top: 0;
+  }
+
+  .reserveButton {
+    margin-top: 10px;
   }
 }

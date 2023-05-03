@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Flip, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaTrashAlt } from 'react-icons/fa';
@@ -10,9 +11,12 @@ import {
 import RecentlyDeletedRooms from './Deleted';
 import './css/delete.css';
 import Sidebar from './Sidebar';
+import MobileMenu from './MobileMenu';
+import { reservationsData } from '../api/reservationsData';
 
 function DeleteRoom() {
   const { data, error, isLoading } = useGetRoomsDetailsQuery();
+  const dispatch = useDispatch();
   const [deleteRoom] = useDeleteRoomMutation();
   const notify = () => toast.success('Room successfully deleted', {
     position: 'top-center',
@@ -43,6 +47,7 @@ function DeleteRoom() {
       localStorage.setItem('deletedRooms', JSON.stringify(deletedRooms));
       deleteRoom(roomId);
       notify();
+      dispatch(reservationsData.util.resetApiState());
     }
   };
 
@@ -58,6 +63,7 @@ function DeleteRoom() {
   return (
     <div className="bigContainer">
       <Sidebar />
+      <MobileMenu />
       <div className="deleteContainer">
         <div className="rooms">
           <h1 id="deleteTitle">CHOOSE A ROOM TO DELETE</h1>
@@ -65,7 +71,9 @@ function DeleteRoom() {
             {data.map((room) => (
               <li id="li" key={room.id}>
                 <div className="imageContainer">
-                  <h4 id="name">{room.name}</h4>
+                  <h4 id="name" className="roomNames">
+                    {room.name}
+                  </h4>
                   <img id="img" alt="room" src={room.image_url} />
                 </div>
                 <button

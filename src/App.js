@@ -9,6 +9,7 @@ import DeleteRoom from './components/DeleteRoom';
 import Current from './components/Current';
 import Reservations from './components/Reservations';
 import RoomDetails from './components/Detail';
+import SignUp from './components/SignUp';
 import Reservation from './pages/Reservation';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Route path="/reservations" element={<Reservations />} />
       <Route path="reservation/new" element={<Reservation roomId={roomId} />} />
       <Route exact path="/room/:id" element={<RoomDetails onButtonReservedClick={handleClick} />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   );
 }

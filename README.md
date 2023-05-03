@@ -1,48 +1,202 @@
-# Getting Started with Create React App and Redux
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+<div align="center">
 
-## Available Scripts
+  <h3><b>Hotel Booking backend</b></h3>
 
-In the project directory, you can run:
+</div>
 
-### `npm start`
+<!-- TABLE OF CONTENTS -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 📗 Table of Contents
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Table of Contents](#-table-of-contents)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Usage](#usage)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
-### `npm test`
+<!-- PROJECT DESCRIPTION -->
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 📖 Hotel Booking Backend<a name="about-project"></a>
 
-### `npm run build`
+This is a Hotel bookings app that allows users to search a list of rooms availables and make reservations for 24hs. This is the front-end repo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠 Built With <a name="built-with"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Tech Stack <a name="tech-stack"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+    <li><a href="https://rubyonrails.org/">Rails</a></li>
+    <li>React</li>
+    <li>Redux</li>
+  </ul>
+</details>
 
-### `npm run eject`
+<details>
+  <summary>Bundle</summary>
+  <ul>
+    <li><a href="https://webpack.js.org/">WebPack</a></li>
+    <li><a href="https://www.npmjs.com/">NPM</a></li>
+  </ul>
+</details>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://rubyonrails.org/">Rails</a></li>
+  </ul>
+</details>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- Features -->
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Key Features <a name="key-features"></a>
 
-## Learn More
+- Create User
+- Create Rooms
+- Delete Rooms
+- Add reservations
+- Display my reservations list
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- LIVE DEMO -->
 
-<a href="https://www.freepik.com/free-photo/black-color-luggage-baggage-bag-use-transportation-travel_7723655.htm#query=suitcase&position=31&from_view=search&track=sph">Image by lifeforstock</a> on Freepik
+## 🚀 Live Demo <a name="live-demo"></a>
+
+Not available yet
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+In order to run this project you need:
+
+- Ruby
+- Ruby terminal
+- Github account.
+- Code editor (Visual Studio Code, Atom, etc.)
+
+### Setup
+
+Clone this repository to your desired folder:
+
+cd my-folder
+git clone https://github.com/sebalp100/hotel-bookings-backend
+
+Clone the front-end repo
+git clone https://github.com/sebalp100/hotel-bookings-frontend/
+
+### Usage
+
+To run the project, execute the following commands in your Ruby terminal:
+
+`bundle install` to install all gems used.
+
+`rails db:create` to create the database.
+
+`rails db:migrate` to run the database migrations you created.
+
+`rails s` to run the dev server.
+
+Go to http://localhost:3000/api-docs/index.html to see API documentation.
+
+If you want to use the front-end repo, clone it: https://github.com/sebalp100/hotel-bookings-frontend and run `npm install` and `npm start`.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- AUTHORS -->
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Sebastian Martin**
+
+- GitHub: [@sebalp100](https://github.com/sebalp100)
+- LinkedIn: [Sebastian Martin](https://www.linkedin.com/in/sebastian-martin-956b2724a/)
+
+👤 **Enoque Jonas**
+
+- GitHub: [@enoqueJonas](https://github.com/enoqueJonas)
+- Twitter: [@enoque_jonas](https://twitter.com/_enoqueJonas)
+- LinkedIn: [@Enoque Macanda](https://www.linkedin.com/mwlite/in/enoque-macanda)
+
+👤 **Simon Gideon**
+
+- GitHub: [@SimonGideon](https://github.com/SimonGideon)
+- LinkedIn: [Simon Gideon](https://linkedin.com/in/mnayi-gideon)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- Add comment button
+- Authorization
+- Improve authentication system
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+Give a ⭐️ if you like this project!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+- Hat tip to anyone whose code was used
+- Microverse
+- Design used: https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign by Murat Korkmaz on Behance
+- John Guest for his guide about authentication: https://medium.com/swlh/react-reactions-cfdde7f08dff
+- Dave Grey for his tutorial about RTK Query: https://www.youtube.com/watch?v=HyZzCHgG3AY&t=8s&ab_channel=DaveGray
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
