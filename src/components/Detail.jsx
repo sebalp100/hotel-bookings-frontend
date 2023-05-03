@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { FiChevronRight } from 'react-icons/fi';
 import { AiOutlineWifi, AiFillVideoCamera } from 'react-icons/ai';
-
+import { Flip, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { MdHotel } from 'react-icons/md';
 import { FaCog } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
@@ -37,6 +38,17 @@ function DetailRoom() {
   const [createReservation] = useCreateReservationMutation();
   const [errorData, setError] = useState(null);
 
+  const notify = () => toast.success('Reservation successfully added', {
+    position: 'top-center',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: 'light',
+  });
+
   const handleSave = async () => {
     console.log('City: ', city);
     console.log('Date: ', date);
@@ -53,6 +65,7 @@ function DetailRoom() {
       await createReservation(reservationData).unwrap();
       dispatch(reservationsData.util.resetApiState());
       handleClose();
+      notify();
     } catch (err) {
       console.error('Error creating reservation:', err);
       setError(err.data);
@@ -89,7 +102,7 @@ function DetailRoom() {
             {errorData && (
               <div className="error">
                 {errorData.city && Object.keys(errorData)[0]}
-&nbsp;
+                &nbsp;
                 {errorData.city}
                 {errorData.base}
               </div>
@@ -167,6 +180,19 @@ function DetailRoom() {
             </button>
           </div>
         </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          transition={Flip}
+          pauseOnHover={false}
+          theme="light"
+        />
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Flip, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { PropTypes } from 'prop-types';
 import {
   useGetRoomsDetailsQuery,
@@ -18,6 +20,18 @@ const FormAddReservation = ({ roomId }) => {
   const { data: currentUser } = useCurrentUserQuery();
   const selectedOption = document.getElementById(roomId);
   const dispatch = useDispatch();
+  const [errorData, setError] = useState(null);
+
+  const notify = () => toast.success('Reservation successfully added', {
+    position: 'top-center',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: 'light',
+  });
 
   useEffect(() => {
     setUser(currentUser);
@@ -49,10 +63,12 @@ const FormAddReservation = ({ roomId }) => {
       .unwrap()
       .then((result) => {
         console.log('Reservation created successfully:', result);
+        notify();
         dispatch(reservationsData.util.resetApiState());
       })
       .catch((error) => {
         console.error('Error creating reservation:', error);
+        setError(error.data);
       });
   };
 
@@ -68,6 +84,7 @@ const FormAddReservation = ({ roomId }) => {
         There are different rooms from various locations available. Choose from
         the options and reserve a room now by filling the form below.
       </p>
+      {errorData && <div className="error">{errorData.base}</div>}
       <form
         className="flex flex-col justify-center items-center text-black"
         onSubmit={handleSubmit}
@@ -132,6 +149,19 @@ const FormAddReservation = ({ roomId }) => {
           Reserve
         </button>
       </form>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        transition={Flip}
+        pauseOnHover={false}
+        theme="light"
+      />
     </div>
   );
 };
