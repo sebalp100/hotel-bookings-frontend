@@ -2,7 +2,10 @@
 
 <div align="center">
 
-  <h3><b>Hotel Booking backend</b></h3>
+  ![hotel-booking-low-resolution-logo-color-on-transparent-background](https://user-images.githubusercontent.com/111214189/235814475-89038f59-0b1f-4f91-81e1-86f64512d4d2.png)
+
+  
+  <h3><b>Hotel Booking Frontend</b></h3>
 
 </div>
 
@@ -28,7 +31,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Hotel Booking Backend<a name="about-project"></a>
+# 📖 Hotel Booking Frontend<a name="about-project"></a>
 
 This is a Hotel bookings app that allows users to search a list of rooms availables and make reservations for 24hs. This is the front-end repo.
 
