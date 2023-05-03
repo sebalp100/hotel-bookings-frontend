@@ -35,6 +35,7 @@ function DetailRoom() {
   const currentUserId = currentUser;
   const dispatch = useDispatch();
   const [createReservation] = useCreateReservationMutation();
+  const [errorData, setError] = useState(null);
 
   const handleSave = async () => {
     console.log('City: ', city);
@@ -54,6 +55,7 @@ function DetailRoom() {
       handleClose();
     } catch (err) {
       console.error('Error creating reservation:', err);
+      setError(err.data);
     }
   };
 
@@ -84,6 +86,14 @@ function DetailRoom() {
           <div className="roomtext">
             <h4>{data.name}</h4>
             <p className="hours">(Reservations for 24hs only)</p>
+            {errorData && (
+              <div className="error">
+                {errorData.city && Object.keys(errorData)[0]}
+&nbsp;
+                {errorData.city}
+                {errorData.base}
+              </div>
+            )}
             <div className="ico">
               <div>
                 <AiOutlineWifi className="to" />

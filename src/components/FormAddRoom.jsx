@@ -48,6 +48,7 @@ const FormAddRoom = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-[300px]"
+              required
             />
           </label>
           <br />
@@ -58,6 +59,7 @@ const FormAddRoom = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className="w-[300px]"
+              required
             />
           </label>
           <br />
@@ -69,6 +71,7 @@ const FormAddRoom = () => {
               value={wifi}
               onChange={(e) => setWifi(e.target.value)}
               className="w-[300px]"
+              required
             />
           </label>
           <br />
@@ -80,6 +83,7 @@ const FormAddRoom = () => {
               value={tv}
               onChange={(e) => setTv(e.target.value)}
               className="w-[300px]"
+              required
             />
           </label>
           <br />
@@ -91,6 +95,7 @@ const FormAddRoom = () => {
               value={roomService}
               onChange={(e) => setRoomService(e.target.value)}
               className="w-[300px]"
+              required
             />
           </label>
           <br />
@@ -102,6 +107,7 @@ const FormAddRoom = () => {
               value={beds}
               onChange={(e) => setBeds(e.target.value)}
               className="w-[300px]"
+              required
             />
           </label>
           <br />
@@ -113,6 +119,7 @@ const FormAddRoom = () => {
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
               className="w-[300px]"
+              required
             />
           </label>
           <br />
