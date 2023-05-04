@@ -23,6 +23,7 @@
     - [Setup](#setup)
     - [Usage](#usage)
   - [👥 Authors ](#-authors-)
+  - [👥 Kanban Board ](#kanban)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
@@ -155,6 +156,11 @@ If you want to use the front-end repo, clone it: https://github.com/sebalp100/ho
 - LinkedIn: [Simon Gideon](https://linkedin.com/in/mnayi-gideon)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 👥 Kanban Board <a name="kanban"></a>
+
+Link to board: https://github.com/users/sebalp100/projects/2/views/1
+![boardk](https://user-images.githubusercontent.com/111214189/233389468-2bed8408-4bcb-4392-9996-e56903a3f58a.png)
 
 <!-- FUTURE FEATURES -->
 
