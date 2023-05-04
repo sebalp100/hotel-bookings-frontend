@@ -1,0 +1,101 @@
+.login-background {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.menu-buttons,
+.menu-buttons2 {
+  align-self: flex-start;
+  color: white;
+  font-size: 30px;
+  margin-top: 40px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.menu-buttons2 {
+  color: orange;
+  transform: scaleX(-1);
+  font-size: 20px;
+}
+
+h1 {
+  color: white;
+  font-weight: bold !important;
+  font-size: 1.7rem !important;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+}
+
+input {
+  height: 20px !important;
+  padding: 14px 10px !important;
+  color: black !important;
+}
+
+.myButton {
+  background-color: #8dd62c !important;
+  border-radius: 28px;
+  border: 1px solid #8dd62c;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  gap: 15px;
+  font-size: 17px;
+  padding: 10px 15px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #2f6627;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.myButton:hover {
+  background-color: #5cbf2a !important;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.glass {
+  background-color: white;
+  border-radius: 29px;
+  width: 50px;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup {
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 20px;
+  text-shadow: 1px 1px 3px #272727;
+  font-size: 1.1rem;
+}
+
+.signup a {
+  color: #a1f138;
+}
+
+.loginH1 {
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px #272727;
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 3rem !important;
+  }
+}

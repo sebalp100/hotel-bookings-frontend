@@ -1,0 +1,96 @@
+.containerForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #d49f22;
+  background: radial-gradient(at left top, #d49f22, #e69b3b);
+}
+
+.containerForm img {
+  display: none;
+}
+
+.formCard {
+  display: flex;
+  width: 70%;
+  height: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 98%;
+}
+
+.login {
+  width: 320px;
+  padding: 30px;
+  padding-top: 156px;
+}
+
+.login__field {
+  padding: 20px 0;
+  display: flex;
+  align-items: baseline;
+  width: 75%;
+}
+
+.login__icon {
+  position: absolute;
+  top: 30px;
+  color: #c77e2b;
+}
+
+.login__input {
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 100%;
+  transition: 0.2s;
+  margin-bottom: 10px;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+  outline: none;
+  border-bottom-color: #c57315;
+}
+
+.buttonForm {
+  margin-top: 40px;
+  background-color: #d67f1c !important;
+  border: 1px solid #d67f1c !important;
+}
+
+.buttonForm:hover {
+  background-color: #c5700e !important;
+  border: 1px solid #c5700e !important;
+}
+
+.bed {
+  font-size: 60px;
+}
+
+.signupForm h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+@media only screen and (min-width: 900px) {
+  .containerForm img {
+    display: block;
+    width: 60%;
+    object-fit: cover;
+  }
+}
