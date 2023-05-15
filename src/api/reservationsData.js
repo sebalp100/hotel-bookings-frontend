@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const reservationsData = createApi({
   reducerPath: 'reservationsData',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://mysite-1cmz.onrender.com/:5432/', credentials: 'include' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://mysite-1cmz.onrender.com/', credentials: 'include' }),
   endpoints: (builder) => ({
     getReservations: builder.query({
       query: () => '/reservations',
