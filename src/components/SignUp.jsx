@@ -19,13 +19,16 @@ function SignUp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password === passwordConfirmation) {
-      const response = await fetch('http://localhost:3000/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        'https://mysite-1cmz.onrender.com/:5432/users',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ user: { username, password } }),
         },
-        body: JSON.stringify({ user: { username, password } }),
-      });
+      );
 
       if (response.ok) {
         console.log('Success');
