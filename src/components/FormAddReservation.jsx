@@ -36,7 +36,7 @@ const FormAddReservation = ({ roomId }) => {
   useEffect(() => {
     setUser(currentUser);
     if (selectedOption !== null) selectedOption.selected = true;
-  });
+  }, [currentUser, selectedOption]);
 
   if (isLoading) {
     return <p>Loading...</p>;
