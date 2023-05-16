@@ -2,7 +2,14 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const authLog = createApi({
   reducerPath: 'authLog',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://mysite-1cmz.onrender.com/', credentials: 'include' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://mysite-1cmz.onrender.com/',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      Cookie: `sessionCookie=${document.cookie}`,
+    },
+  }),
   endpoints: (builder) => ({
     currentUser: builder.query({
       query: () => '/current_user',
