@@ -19,7 +19,7 @@ function SignUp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password === passwordConfirmation) {
-      const response = await fetch('https://mysite-1cmz.onrender.com/users', {
+      const response = await fetch('https://rails-production-68eb.up.railway.app/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const authLog = createApi({
   reducerPath: 'authLog',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://mysite-1cmz.onrender.com/',
+    baseUrl: 'https://rails-production-68eb.up.railway.app/',
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',

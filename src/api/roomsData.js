@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 // Define a service using a base URL and expected endpoints
 export const roomsApi = createApi({
   reducerPath: 'roomsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://mysite-1cmz.onrender.com/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://rails-production-68eb.up.railway.app/' }),
   endpoints: (builder) => ({
     getRoomsDetails: builder.query({
       query: () => '/rooms',

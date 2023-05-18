@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const roomData = createApi({
   reducerPath: 'roomData',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://mysite-1cmz.onrender.com/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://rails-production-68eb.up.railway.app/' }),
   endpoints: (builder) => ({
     getRoomData: builder.query({
       query: (id) => `/rooms/${id}`,
