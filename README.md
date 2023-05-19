@@ -88,7 +88,7 @@ This is a Hotel bookings app that allows users to search a list of rooms availab
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-Not available yet
+[Link](https://hotel-bookings-frontend.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
