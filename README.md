@@ -34,7 +34,7 @@
 
 # 📖 Hotel Booking Frontend<a name="about-project"></a>
 
-This is a Hotel bookings app that allows users to search a list of rooms availables and make reservations for 24hs. This is the front-end repo.
+This is a Hotel bookings app that allows users to search a list of rooms available and make reservations for 24 hours. This is the front-end repo.
 
 ## 🛠 Built With <a name="built-with"></a>
 
